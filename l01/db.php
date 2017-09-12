@@ -1,17 +1,19 @@
 <?php 
 
-$servername = '127.0.0.1';
-$dbname = 'pt12312-mvc';
-$dbusername = 'root';
-$dbpwd = '123456';
+/**
+* 
+*/
+class DbConnect
+{
+	var $servername = '127.0.0.1';
+	var $dbname = 'pt12312-mvc';
+	var $dbusername = 'root';
+	var $dbpwd = '123456';
+	var $conn = null;
 
-try{
-
-	$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $dbusername, $dbpwd);
-}catch(Exception $ex){
-	var_dump($ex->getMessage());
-	die;
+	function getConnect()
+	{
+		$this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname;charset=utf8", $this->dbusername, $this->dbpwd);
+	}
 }
-
-
  ?>

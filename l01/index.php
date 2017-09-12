@@ -1,8 +1,15 @@
 <?php 
 require_once 'db.php';
+$db = new DbConnect();
+
+$db->getConnect();
+
+var_dump($db->servername);die;
+$db->getConnect();
+
 
 $sqlQuery = 'select * from users';
-$stmt = $conn->prepare($sqlQuery);
+$stmt = $db->conn->prepare($sqlQuery);
 
 $stmt->execute();
 
