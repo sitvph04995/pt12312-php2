@@ -32,6 +32,26 @@ class BaseModel
 		return $this;
 	}
 
+	static function all(){
+
+	}
+
+	static function findOne($id){
+		
+	}
+
+	function first(){
+
+	}
+
+	function orderBy($arr = []){
+
+	}
+
+	function delete(){
+
+	}
+
 	function get(){
 		$conn = $this->getConnect();
 		$stmt = $conn->prepare($this->queryBuilder);
