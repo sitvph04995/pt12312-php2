@@ -68,7 +68,16 @@ class BaseModel
 	}
 
 	function delete(){
-
+		try{
+			$this->queryBuilder = "delete from $this->tableName where id = '$this->id'";
+			$conn = $this->getConnect();
+			$stmt = $conn->prepare($this->queryBuilder);
+			$stmt->execute();
+			return true;
+		}catch(Exception $ex){
+			var_dump($ex->getMessage());
+			return false;
+		}
 	}
 
 	function get(){
