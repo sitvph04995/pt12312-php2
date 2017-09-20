@@ -7,10 +7,12 @@ $products = Product::where(['price', ">", 100])
 					->orderBy(['name', 'desc'])
 					->orderBy(['price', 'desc'])
 					->first();
-$products->name = "ChungNQ";
-$products->detail = '2 quả thận';
-$products->price = '99999';
-var_dump($products->insert());die;
+
+$products->name = "ChungNQ xau trai hoc dot";
+$products->detail = '4 quả thận';
+$products->price = null;
+echo "<pre>";
+var_dump($products->update());die;
 
 // echo "<pre>";
 // var_dump($users);

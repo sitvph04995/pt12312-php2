@@ -5,28 +5,69 @@
 class BaseModel
 {
 	function insert(){
+
+		$sql = "insert into $this->tableName ";
+		$sql .= "(";
+		foreach ($this->columns as $col) {
+			$sql .= " $col, ";
+		}
+		$sql = rtrim($sql, ", ");
+		$sql .= ")";
+		$sql .= " values ";
+		$sql .= "(";
+		foreach ($this->columns as $col) {
+			$sql .= "'".$this->{$col}. "', ";
+		}
+		$sql = rtrim($sql, ", ");
+		$sql .= ")";
+
+		$conn = $this->getConnect();
+		
+		$conn->beginTransaction(); 
+		
 		try{
 
-			$sql = "insert into $this->tableName ";
-			$sql .= "(";
-			foreach ($this->columns as $col) {
-				$sql .= " $col, ";
-			}
-			$sql = rtrim($sql, ", ");
-			$sql .= ")";
-			$sql .= " values ";
-			$sql .= "(";
-			foreach ($this->columns as $col) {
-				$sql .= "'".$this->{$col}. "', ";
-			}
-			$sql = rtrim($sql, ", ");
-			$sql .= ")";
-			$conn = $this->getConnect();
 			$stmt = $conn->prepare($sql);
 			$stmt->execute();
-			return true;
+
+			$this->id = $conn->lastInsertId(); 
+			$conn->commit(); 
+			if($this->id > 0){
+				return $this;
+			}
+
+			return false;
 		}
-		catch(Exception $ex){
+		catch(PDOException $ex){
+			$conn->rollback(); 
+			return false;
+		}
+	}
+
+	function update(){
+
+		$sql = "update $this->tableName ";
+		$sql .= " set ";
+		foreach ($this->columns as $col) {
+			$sql .= " $col = '" . $this->{$col} ."', ";
+		}
+		$sql = rtrim($sql, ", ");
+		
+		$sql .= " where id = '" . $this->id ."' ";
+		var_dump($sql);die;
+		$conn = $this->getConnect();
+		$conn->beginTransaction(); 
+		
+		try{
+
+			$stmt = $conn->prepare($sql);
+			$stmt->execute();
+
+			$conn->commit(); 
+			return $this;
+		}
+		catch(PDOException $ex){
+			$conn->rollback(); 
 			return false;
 		}
 	}
@@ -151,6 +192,8 @@ class BaseModel
 		$dbusername = 'root';
 		$dbpwd = '123456';
 		$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $dbusername, $dbpwd);
+
+		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES,TRUE);
 		return $conn;
 	}
 }
