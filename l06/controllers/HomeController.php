@@ -3,13 +3,14 @@
 * 
 */
 require_once 'models/Product.php';
-class HomeController
+require_once 'controllers/BaseController.php';
+class HomeController extends BaseController
 {
 	
 	function index(){
 		$products = Product::all();
-		dd($products);
-		include_once "views/homepage.php";
+		
+		return $this->render("views/homepage.php", ['pros' => $products], 'views/main.layout.php');
 	}
 }
 

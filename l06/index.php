@@ -9,22 +9,26 @@ function dd($var){
 
 
 $url = isset($_GET['url']) == true ? $_GET['url'] : "/";
+require_once 'controllers/HomeController.php';
+require_once 'controllers/UserController.php';
 
 
 switch ($url) {
 	case "/":
-		require_once 'controllers/HomeController.php';
 		$ctl = new HomeController();
-		$ctl->index();
+		echo $ctl->index();
 		break;
 	case "them-san-pham":
-		require_once 'controllers/HomeController.php';
+		$ctl = new HomeController();
+		echo $ctl->index();
+		break;
+	case "luu-san-pham":
+		
 		$ctl = new HomeController();
 		$ctl->index();
 		break;
-	case "luu-san-pham":
-		require_once 'controllers/HomeController.php';
-		$ctl = new HomeController();
+	case "danh-sach-thanh-vien":
+		$ctl = new UserController();
 		$ctl->index();
 		break;
 	case 'san-pham':
