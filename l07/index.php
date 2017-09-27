@@ -33,6 +33,13 @@ switch ($url) {
 		$ctl = new HomeController();
 		echo $ctl->cateList();
 		break;
+	case "danh-muc/them":
+		// yêu cầu: Hiển thị danh sách danh mục và sử dụng layout main.layout.php
+		// trong layout yêu cầu nhúng css và js của bootstrap vào
+		
+		$ctl = new HomeController();
+		// echo $ctl->cateList();
+		break;
 
 	
 	default:
