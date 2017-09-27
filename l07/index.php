@@ -34,8 +34,13 @@ switch ($url) {
 		echo $ctl->cateList();
 		break;
 	case "danh-muc/them":
-		// yêu cầu: Hiển thị danh sách danh mục và sử dụng layout main.layout.php
-		// trong layout yêu cầu nhúng css và js của bootstrap vào
+		// yêu cầu: Hiển thị form thêm danh mục sau đó submit lên url danh-muc/luu
+		
+		$ctl = new HomeController();
+		// echo $ctl->cateList();
+		break;
+	case "danh-muc/luu":
+		// yêu cầu: tiến hành lưu dữ liệu gửi từ form lên, lưu vào csdl sau đó redirect về url: danh-muc
 		
 		$ctl = new HomeController();
 		// echo $ctl->cateList();
