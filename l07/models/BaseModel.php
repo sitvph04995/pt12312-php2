@@ -189,7 +189,7 @@ class BaseModel
 	}
 
 	function fill($requestArr = []){
-		$foreach ($this->columns as $key) {
+		foreach ($this->columns as $key) {
 			$this->{$key} = $requestArr[$key];
 		}
 	}
