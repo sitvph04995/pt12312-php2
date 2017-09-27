@@ -187,6 +187,12 @@ class BaseModel
 		$result = $stmt->fetchAll(PDO::FETCH_CLASS, get_class($this));
 		return $result;
 	}
+
+	function fill($requestArr = []){
+		$foreach ($this->columns as $key) {
+			$this->{$key} = $requestArr[$key];
+		}
+	}
 	
 
 	function getConnect()
