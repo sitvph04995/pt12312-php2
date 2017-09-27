@@ -21,6 +21,10 @@ class BaseController
 
         return $renderedView;
     }
+    
+    public function redirect($path = ""){
+        header('location: ' . getUrl($path));
+    }
 }
 
 

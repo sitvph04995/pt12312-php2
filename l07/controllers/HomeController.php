@@ -16,11 +16,13 @@ class HomeController extends BaseController
 	}
 
 	function cateList(){
+
 		$cates = Category::all();
 		return $this->render('views/category/index.php', compact('cates'), 'views/main.layout.php');
+		// $this->redirect();
 	}
 
-	
+
 }
 
 
