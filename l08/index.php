@@ -11,19 +11,16 @@ $url = isset($_GET['url']) == true ? $_GET['url'] : "/";
 
 // lấy ra url gốc của project
 function getUrl($path = ""){
-	/*$currentUrlpath = $GLOBALS['url'];
+	$currentUrlpath = $GLOBALS['url'];
 
+	$absoluteUrl = strtok("http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]",'?');
 
-	$absoluteUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-	$absoluteUrl = explode('?', $absoluteUrl, 2);
 	if($currentUrlpath != "/"){
 		$absoluteUrl = str_replace("$currentUrlpath", "", $absoluteUrl);
-	}*/
-	$absoluteUrl = "http://localhost/pt12312-php2/l08/";
-	return $absoluteUrl.$path;
-}
+	}
 
+	return $path == "/" ? $absoluteUrl : $absoluteUrl.$path;
+}
 
 
 require_once 'controllers/HomeController.php';
