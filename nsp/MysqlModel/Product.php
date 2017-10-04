@@ -1,5 +1,5 @@
 <?php 
-namespace MysqlModel;
+namespace My;
 /**
 * 
 */

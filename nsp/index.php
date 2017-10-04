@@ -3,11 +3,11 @@
 /**
 * 
 */
-require_once 'MongoModel/Product.php';
-require_once 'MysqlModel/Product.php';
-use MongoModel\Product;
-use MysqlModel\Product as MyProduct;
-$a = new MyProduct();
+require_once 'vendor/autoload.php';
+use Mongo\Product;
+use Mongo\User;
+use My\Product as MyProduct;
+$a = new User();
 
 echo $a->getName();
 

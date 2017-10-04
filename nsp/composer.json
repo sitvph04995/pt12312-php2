@@ -1,0 +1,19 @@
+{
+    "name": "gin/nsp",
+    "authors": [
+        {
+            "name": "thienth",
+            "email": "thienth@fpt.edu.vn"
+        }
+    ],
+    "require": {
+        "phroute/phroute": "^2.1",
+        "jenssegers/blade": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mongo\\": "MongoModel/",
+            "My\\": "MysqlModel/"
+        }
+    }
+}

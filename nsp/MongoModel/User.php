@@ -3,12 +3,12 @@ namespace Mongo;
 /**
 * 
 */
-class Product
+class User
 {
 	
 	function getName()
 	{
-		return "MongoModel => Product";
+		return "MongoModel => User";
 	}
 }
  ?>
