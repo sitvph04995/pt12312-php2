@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="container text-right">
-		<a href="#" title="">
+		<a href="<?php echo getUrl('cart-detail') ?>" title="">
 			<span class="glyphicon glyphicon-bell"></span>
 			<?php echo getTotalCartItem() ?>
 		</a>

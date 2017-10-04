@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'commons/utils.php';
+include_once 'commons/utils.php';
 
 if(!isset($_SESSION["CART"])){
 	$_SESSION["CART"] = [];
@@ -57,8 +57,18 @@ switch ($url) {
 		$ctl = new HomeController();
 		// echo $ctl->cateList();
 		break;
+	case "add-to-cart":
+		$ctl = new HomeController();
+		$ctl->addToCart();
+		break;
 
-	
+	case 'cart-detail':
+		$ctl = new HomeController();
+		echo $ctl->detailCart();
+		break;
+	case "reset-cart":
+		$_SESSION['CART'] = [];
+		break;
 	default:
 		$msg = "Trang bạn tìm kiếm không có thật. Vui lòng liên hệ với ban quản trị.";
 		require_once 'views/not-found.php';

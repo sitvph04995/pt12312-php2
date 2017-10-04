@@ -1,7 +1,32 @@
 <?php 
+require_once 'models/Product.php';
 function getTotalCartItem(){
+	$countItem = 0;
+	$cartArr = $_SESSION['CART'];
+	
+	foreach ($cartArr as $item) {
+		$countItem += $item['quantity'];
+	}
+	return $countItem;
+}
 
-	return 0;
+function addItemToCart($product = []){
+	$cartArr = $_SESSION['CART'];
+	
+	$flag = false;
+	for ($i=0; $i < count($cartArr); $i++) { 
+		if($product['id'] == $cartArr[$i]['id']){
+			$cartArr[$i]['quantity']++;
+			$flag = true;
+			break;
+		}
+	}
+	if($flag == false){
+		$product['quantity'] = 1;
+		array_push($cartArr, $product);
+	}
+
+	$_SESSION['CART'] = $cartArr;
 }
 
 function dd($var){

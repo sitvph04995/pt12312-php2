@@ -22,6 +22,8 @@
 				<td>
 					<a class="btn btn-info" href='<?php echo getUrl("update-product?id=$value->id") ?>' >Update</a>
 					<a class="btn btn-danger" href='<?php echo getUrl("remove-product?id=$value->id") ?>' >Remove</a>
+
+					<a href="<?php echo getUrl("add-to-cart?id=$value->id") ?>" class="btn btn-warning">Add to Cart</a>
 				</td>
 			</tr>
 		<?php endforeach ?>
