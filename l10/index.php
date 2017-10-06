@@ -11,6 +11,7 @@ $url = isset($_GET['url']) == true ? $_GET['url'] : "/";
 
 require_once 'controllers/HomeController.php';
 require_once 'controllers/UserController.php';
+require_once 'controllers/ForgotPasswordController.php';
 
 
 switch ($url) {
@@ -68,6 +69,18 @@ switch ($url) {
 		break;
 	case "reset-cart":
 		$_SESSION['CART'] = [];
+		break;
+
+	case 'forgot-password':
+		include_once 'views/forgot-password.php';
+		break;
+	case 'forgot-submit':
+		$ctl = new ForgotPasswordController();
+		$ctl->sendForgotEmail();
+		break;
+	case 'reset-password':
+		$ctl = new ForgotPasswordController();
+		$ctl->resetForm();
 		break;
 	default:
 		$msg = "Trang bạn tìm kiếm không có thật. Vui lòng liên hệ với ban quản trị.";

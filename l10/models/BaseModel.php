@@ -200,7 +200,7 @@ class BaseModel
 		$servername = '127.0.0.1';
 		$dbname = 'pt12312-mvc';
 		$dbusername = 'root';
-		$dbpwd = '123456';
+		$dbpwd = '';
 		$conn = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $dbusername, $dbpwd);
 
 		$conn->setAttribute(PDO::ATTR_EMULATE_PREPARES,TRUE);

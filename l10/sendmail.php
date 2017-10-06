@@ -24,9 +24,12 @@ $name_from = 'thienth32';
  
 //Typical mail data
 $mail->AddAddress($email, $name);
+$mail->AddAddress('chungnqph03842@fpt.edu.vn', 'chungnq');
+$mail->AddAddress('doanlnph04866@fpt.edu.vn', 'Doan Chi Binh');
 $mail->SetFrom($email_from, $name_from);
 $mail->Subject = "My Subject";
 $mail->Body = "Mail contents";
+$mail->addAttachment('./uploads/img1.jpg'); 
  
 try{
     $mail->Send();
