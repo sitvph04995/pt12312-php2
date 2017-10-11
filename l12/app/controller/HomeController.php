@@ -3,13 +3,24 @@ namespace App\Controller;
 use App\Model\Product;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
 class HomeController
 {
 	
+	// private function render($viewFile, $variable = []){
+	// 	$blade = new Blade('app/views', 'storage');
+	// 	echo $blade->make($viewFile, $variable);
+	// }
+
 	function index()
 	{
 		$products = Product::all();
-		var_dump($products);
+		var_dump($products);die;
+		// return $this->render('index', ['products' => $products]);
+	}
+
+	function adminUser($userid){
+		var_dump($userid);die;
 	}
 	function sendmail()
 	{

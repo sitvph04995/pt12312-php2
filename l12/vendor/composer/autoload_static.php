@@ -20,11 +20,16 @@ class ComposerStaticInit33c30511bfb1f04369c3e3842648e74b
             'Symfony\\Component\\Finder\\' => 25,
             'Symfony\\Component\\Debug\\' => 24,
         ),
+        'R' => 
+        array (
+            'Route\\' => 6,
+        ),
         'P' => 
         array (
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'Phroute\\Phroute\\' => 16,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
         'J' => 
@@ -71,6 +76,10 @@ class ComposerStaticInit33c30511bfb1f04369c3e3842648e74b
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
         ),
+        'Route\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/routes',
+        ),
         'Psr\\SimpleCache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/simple-cache/src',
@@ -82,6 +91,10 @@ class ComposerStaticInit33c30511bfb1f04369c3e3842648e74b
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Phroute\\Phroute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phroute/phroute/src/Phroute',
         ),
         'PHPMailer\\PHPMailer\\' => 
         array (
